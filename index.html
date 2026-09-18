@@ -1,33 +1,275 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Susma Regmi</title>
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Susma Regmi | Graduate Researcher</title>
+    <style>
+        /* --- Global Styles --- */
+        :root {
+            --primary-color: #2c5e3b; /* Deep Forest Green */
+            --primary-light: #4a8c5c;
+            --text-dark: #2d3436;
+            --text-light: #636e72;
+            --bg-color: #f9fbf9;
+            --card-bg: #ffffff;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-color);
+        }
+
+        /* --- Navigation --- */
+        nav {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem 2rem;
+        }
+
+        .nav-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-light);
+        }
+
+        /* --- Hero Section --- */
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 20px rgba(44, 94, 59, 0.1);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        header .tagline {
+            font-size: 1.2rem;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: white;
+            color: var(--primary-color);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        /* --- Main Content --- */
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem 2rem;
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(44, 94, 59, 0.1);
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-light);
+            font-size: 1.05rem;
+        }
+
+        /* --- Research Grid --- */
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .research-card {
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.04);
+            border-left: 4px solid var(--primary-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .research-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.08);
+        }
+
+        .research-card h3 {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: #ffffff;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+            header {
+                padding: 3rem 1rem;
+            }
+            .nav-links {
+                display: none; /* Hide nav links on small screens for simplicity */
+            }
+            .research-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
 <body>
 
-    <h1>Susma Regmi</h1>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-content">
+            <div class="logo">Susma Regmi</div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#research">Research</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
 
-    <p>
-        Graduate Researcher | GIS | Remote Sensing | Precision Agriculture
-    </p>
+    <!-- Hero Section -->
+    <header>
+        <h1>Susma Regmi</h1>
+        <div class="tagline">
+            Graduate Researcher | GIS | Remote Sensing | Precision Agriculture
+        </div>
+        <a href="#research" class="btn">View My Research</a>
+    </header>
 
-    <h2>About Me</h2>
+    <!-- Main Content -->
+    <main>
+        
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Me</h2>
+            <p>
+                Welcome to my academic portfolio. I am a graduate researcher passionate about leveraging geospatial technologies to solve real-world problems. 
+            </p>
+            <p>
+                My work focuses on the intersection of GIS, UAV remote sensing, and precision agriculture. I am particularly interested in how spatial analysis and remote sensing data can be used to improve agricultural practices and natural resource management.
+            </p>
+        </section>
 
-    <p>
-        Welcome to my website. I am interested in GIS, UAV remote sensing,
-        precision agriculture, and geospatial technologies.
-    </p>
+        <!-- Research Section -->
+        <section id="research">
+            <h2>Research Interests</h2>
+            <div class="research-grid">
+                
+                <div class="research-card">
+                    <h3>🌾 Precision Agriculture</h3>
+                    <p>Applying geospatial data to optimize crop management and yield.</p>
+                </div>
 
-    <h2>Research Interests</h2>
+                <div class="research-card">
+                    <h3>🛰️ UAV Remote Sensing</h3>
+                    <p>Utilizing drones for high-resolution spatial data collection and analysis.</p>
+                </div>
 
-    <ul>
-        <li>Precision Agriculture</li>
-        <li>UAV Remote Sensing</li>
-        <li>GIS and Spatial Analysis</li>
-        <li>Remote Sensing</li>
-        <li>Tree Detection and Mapping</li>
-    </ul>
+                <div class="research-card">
+                    <h3>🗺️ GIS & Spatial Analysis</h3>
+                    <p>Advanced mapping and spatial modeling for environmental applications.</p>
+                </div>
+
+                <div class="research-card">
+                    <h3>🌲 Tree Detection & Mapping</h3>
+                    <p>Automated identification and mapping of tree species using imagery.</p>
+                </div>
+
+                <div class="research-card">
+                    <h3>🌍 Remote Sensing</h3>
+                    <p>Satellite and aerial image analysis for land cover and change detection.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Contact Section (Placeholder) -->
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Feel free to reach out for research collaborations or inquiries.</p>
+            <p><strong>Email:</strong> your.email@example.com</p>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 Susma Regmi. Built with GitHub Pages.
+    </footer>
 
 </body>
 </html>
