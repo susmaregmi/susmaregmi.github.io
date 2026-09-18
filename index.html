@@ -3,21 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Susma Regmi | GIS & Precision Agriculture Researcher</title>
+    <title>Susma Regmi | GIS, Remote Sensing & Precision Agriculture</title>
+    <meta name="description" content="Graduate researcher working at the intersection of GIS, UAV remote sensing, geospatial data science, and precision agriculture.">
+    
+    <!-- Google Fonts: Space Grotesk for headings, Inter for body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
     <style>
-        /* --- CSS Variables for easy color changes --- */
+        /* --- DESIGN SYSTEM --- */
         :root {
-            --primary: #2c5e3b;       /* Deep Forest Green */
-            --primary-light: #4a8c5c; /* Lighter Green */
-            --accent: #d4a373;        /* Earthy Sand/Tan */
-            --text-dark: #2d3436;     /* Dark Grey for text */
-            --text-light: #636e72;    /* Lighter Grey for body text */
-            --bg-color: #f8f9fa;      /* Off-white background */
-            --card-bg: #ffffff;
-            --border-color: #e9ecef;
+            --bg-color: #F5F4EF;
+            --dark-green: #10251B;
+            --primary-green: #2F6B45;
+            --accent-green: #8BAF65;
+            --light-green: #D8E4D0;
+            --text-main: #1C211E;
+            --text-muted: #626861;
+            --white: #ffffff;
+            --border-color: #e0e0e0;
+            
+            --font-heading: 'Space Grotesk', sans-serif;
+            --font-body: 'Inter', sans-serif;
         }
 
-        /* --- Global Reset & Typography --- */
+        /* --- GLOBAL STYLES --- */
         * {
             margin: 0;
             padding: 0;
@@ -25,208 +36,419 @@
         }
 
         html {
-            scroll-behavior: smooth; /* Smooth scrolling for nav links */
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.7;
-            color: var(--text-dark);
+            font-family: var(--font-body);
             background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
         h1, h2, h3, h4 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            font-weight: 700;
+            font-family: var(--font-heading);
+            color: var(--dark-green);
+            line-height: 1.1;
         }
 
         p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
             margin-bottom: 1rem;
-            color: var(--text-light);
         }
 
         a {
-            color: var(--primary-light);
+            color: var(--primary-green);
             text-decoration: none;
             transition: color 0.2s ease;
         }
 
         a:hover {
-            color: var(--primary);
-            text-decoration: underline;
+            color: var(--accent-green);
         }
 
-        /* --- Navigation --- */
+        /* --- LAYOUT --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 6rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-header {
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            max-width: 600px;
+        }
+
+        /* --- NAVIGATION --- */
         nav {
-            background-color: rgba(255, 255, 255, 0.95);
+            background-color: rgba(245, 244, 239, 0.95);
             backdrop-filter: blur(10px);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             position: sticky;
             top: 0;
             z-index: 1000;
-            padding: 1rem 2rem;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border-color);
         }
 
-        .nav-content {
-            max-width: 1000px;
-            margin: 0 auto;
+        .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-weight: 800;
+            font-family: var(--font-heading);
             font-size: 1.2rem;
-            color: var(--primary);
-            letter-spacing: 0.5px;
+            font-weight: 700;
+            color: var(--dark-green);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
         }
 
         .nav-links a {
-            margin-left: 2rem;
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--text-dark);
-            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .nav-links a:hover {
-            color: var(--primary);
-            text-decoration: none;
+            color: var(--primary-green);
         }
 
-        .nav-links .btn-linkedin {
-            background-color: var(--primary);
-            color: white;
-            padding: 0.5rem 1.2rem;
-            border-radius: 50px;
-            transition: background-color 0.3s ease;
+        /* --- HERO SECTION --- */
+        .hero {
+            padding: 8rem 0 6rem 0;
+            background-color: var(--bg-color);
+            position: relative;
+            overflow: hidden;
         }
 
-        .nav-links .btn-linkedin:hover {
-            background-color: var(--primary-light);
-            color: white;
+        /* Subtle topographic pattern overlay */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: radial-gradient(var(--light-green) 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.4;
+            z-index: -1;
         }
 
-        /* --- Hero Section --- */
-        header {
-            background: linear-gradient(135deg, #1e422a 0%, var(--primary) 100%);
-            color: white;
-            padding: 6rem 2rem 5rem 2rem;
-            text-align: center;
-            border-bottom-left-radius: 30px;
-            border-bottom-right-radius: 30px;
-            margin-bottom: 3rem;
-            box-shadow: 0 10px 30px rgba(44, 94, 59, 0.15);
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
         }
 
-        header h1 {
-            font-size: 3.5rem;
-            color: white;
-            margin-bottom: 0.5rem;
-            letter-spacing: -1px;
+        .hero-text h1 {
+            font-size: 5rem;
+            font-weight: 700;
+            letter-spacing: -2px;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
         }
 
-        header .subtitle {
-            font-size: 1.3rem;
-            font-weight: 400;
-            opacity: 0.9;
+        .hero-text h1 span {
+            color: var(--primary-green);
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-green);
+            text-transform: uppercase;
+            letter-spacing: 1px;
             margin-bottom: 2rem;
-            color: #e0e0e0;
         }
 
-        header .hero-links {
+        .hero-description {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 500px;
+        }
+
+        .btn-group {
             display: flex;
-            justify-content: center;
             gap: 1rem;
-            flex-wrap: wrap;
         }
 
         .btn {
             display: inline-block;
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
+            padding: 1rem 2rem;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
 
         .btn-primary {
-            background-color: var(--accent);
-            color: var(--text-dark);
+            background-color: var(--dark-green);
+            color: var(--white);
         }
 
         .btn-primary:hover {
-            background-color: #c18e5a;
-            color: var(--text-dark);
-            text-decoration: none;
+            background-color: var(--primary-green);
+            color: var(--white);
             transform: translateY(-2px);
         }
 
         .btn-outline {
             background-color: transparent;
-            border-color: white;
-            color: white;
+            border-color: var(--dark-green);
+            color: var(--dark-green);
         }
 
         .btn-outline:hover {
-            background-color: white;
-            color: var(--primary);
-            text-decoration: none;
+            background-color: var(--dark-green);
+            color: var(--white);
             transform: translateY(-2px);
         }
 
-        /* --- Main Container --- */
-        main {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 2rem 5rem 2rem;
+        /* Hero Visual Placeholder */
+        .hero-visual {
+            width: 100%;
+            height: 400px;
+            background-color: var(--light-green);
+            border: 2px solid var(--dark-green);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
         }
 
-        section {
-            margin-bottom: 4rem;
-            scroll-margin-top: 80px; /* Offset for sticky nav */
+        .hero-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(20%);
         }
 
-        .section-title {
-            font-size: 2rem;
-            border-bottom: 3px solid var(--accent);
-            padding-bottom: 0.5rem;
-            margin-bottom: 2rem;
-            display: inline-block;
+        .hero-visual .overlay-data {
+            position: absolute;
+            bottom: 1rem;
+            left: 1rem;
+            background-color: rgba(16, 37, 27, 0.9);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            font-family: var(--font-heading);
+            font-size: 0.8rem;
+            letter-spacing: 1px;
         }
 
-        /* --- About Section --- */
-        .about-text {
-            font-size: 1.1rem;
-            max-width: 800px;
+        /* --- CREDIBILITY STRIP --- */
+        .credibility-strip {
+            background-color: var(--dark-green);
+            color: var(--white);
+            padding: 1.5rem 0;
+            text-align: center;
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
-        /* --- Research Interests Grid --- */
-        .research-grid {
+        .credibility-strip span {
+            margin: 0 1.5rem;
+            opacity: 0.8;
+        }
+
+        /* --- RESEARCH SNAPSHOT --- */
+        .snapshot-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
         }
 
-        .research-card {
-            background-color: var(--card-bg);
+        .snapshot-item {
+            border-top: 3px solid var(--primary-green);
+            padding-top: 1.5rem;
+        }
+
+        .snapshot-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-green);
+        }
+
+        .snapshot-item p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* --- FEATURED PROJECTS --- */
+        .project-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 6rem;
+        }
+
+        .project-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .project-item.reverse {
+            direction: rtl;
+        }
+
+        .project-item.reverse .project-text {
+            direction: ltr;
+        }
+
+        .project-number {
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            color: var(--accent-green);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-text h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .project-tags span {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background-color: var(--light-green);
+            color: var(--dark-green);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+        }
+
+        .project-link {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 350px;
+            background-color: var(--border-color);
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* --- DARK WORKFLOW SECTION --- */
+        .workflow-section {
+            background-color: var(--dark-green);
+            color: var(--white);
+            padding: 8rem 0;
+            border-bottom: none;
+        }
+
+        .workflow-section h2 {
+            color: var(--white);
+            font-size: 3rem;
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+
+        .workflow-grid {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .workflow-step {
+            flex: 1;
+            min-width: 150px;
+            position: relative;
+        }
+
+        .workflow-step h4 {
+            color: var(--accent-green);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .workflow-step p {
+            color: #a0a8a3;
+            font-size: 0.85rem;
+            margin: 0;
+        }
+
+        .workflow-arrow {
+            color: var(--accent-green);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        /* --- CURRENTLY WORKING ON --- */
+        .current-work-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .current-work-card {
+            background-color: var(--white);
             padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
-            border-top: 5px solid var(--primary-light);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--primary-green);
         }
 
-        .research-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-        }
-
-        .research-card h3 {
+        .current-work-card h3 {
             font-size: 1.3rem;
             margin-bottom: 0.8rem;
             display: flex;
@@ -234,7 +456,7 @@
             gap: 0.5rem;
         }
 
-        /* --- Experience & Education Timeline --- */
+        /* --- EXPERIENCE TIMELINE --- */
         .timeline {
             position: relative;
             max-width: 800px;
@@ -244,19 +466,16 @@
         .timeline::after {
             content: '';
             position: absolute;
-            width: 3px;
-            background-color: var(--border-color);
+            width: 2px;
+            background-color: var(--light-green);
             top: 0;
             bottom: 0;
             left: 20px;
-            margin-left: -1.5px;
         }
 
         .timeline-item {
-            padding: 10px 0 30px 50px;
+            padding: 0 0 3rem 50px;
             position: relative;
-            background-color: inherit;
-            width: 100%;
         }
 
         .timeline-item::after {
@@ -264,346 +483,473 @@
             position: absolute;
             width: 16px;
             height: 16px;
-            right: auto;
-            left: 12px;
-            background-color: var(--card-bg);
-            border: 4px solid var(--primary-light);
-            top: 15px;
+            left: 13px;
+            background-color: var(--bg-color);
+            border: 3px solid var(--primary-green);
+            top: 5px;
             border-radius: 50%;
             z-index: 1;
         }
 
         .timeline-item h4 {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-bottom: 0.2rem;
         }
 
         .timeline-item .meta {
             font-size: 0.9rem;
             font-weight: 600;
-            color: var(--accent);
-            margin-bottom: 0.8rem;
+            color: var(--accent-green);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .timeline-item ul {
-            list-style-type: disc;
-            padding-left: 1.2rem;
-            color: var(--text-light);
+        .timeline-item p {
+            font-size: 0.95rem;
         }
 
-        .timeline-item ul li {
-            margin-bottom: 0.5rem;
-        }
-
-        /* --- Skills Section --- */
-        .skills-container {
+        /* --- PUBLICATIONS --- */
+        .publication-list {
             display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
+            flex-direction: column;
+            gap: 2rem;
         }
 
-        .skill-tag {
-            background-color: #e8f0eb;
-            color: var(--primary);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
+        .publication-item {
+            border-left: 3px solid var(--light-green);
+            padding-left: 1.5rem;
+        }
+
+        .publication-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .publication-item .journal {
             font-size: 0.9rem;
             font-weight: 600;
-        }
-
-        /* --- Publications --- */
-        .publication-item {
-            margin-bottom: 1.5rem;
-            padding-left: 1.5rem;
-            border-left: 3px solid var(--border-color);
+            color: var(--accent-green);
+            margin-bottom: 0.5rem;
         }
 
         .publication-item p {
             font-size: 0.95rem;
-            margin-bottom: 0.2rem;
+            margin-bottom: 0.5rem;
         }
 
-        /* --- Contact & Footer --- */
+        /* --- ABOUT SECTION --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .about-image {
+            width: 100%;
+            aspect-ratio: 1;
+            background-color: var(--border-color);
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* --- CONTACT & FOOTER --- */
         .contact-section {
+            background-color: var(--dark-green);
+            color: var(--white);
             text-align: center;
-            background-color: var(--card-bg);
-            padding: 3rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            padding: 8rem 0;
+            border-bottom: none;
+        }
+
+        .contact-section h2 {
+            color: var(--white);
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-section p {
+            color: #a0a8a3;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 3rem auto;
         }
 
         .contact-links {
             display: flex;
             justify-content: center;
-            gap: 2rem;
-            margin-top: 1.5rem;
+            gap: 3rem;
             flex-wrap: wrap;
         }
 
         .contact-links a {
+            color: var(--white);
+            font-family: var(--font-heading);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             font-size: 1.1rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 0.5rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .contact-links a:hover {
+            border-color: var(--accent-green);
+            color: var(--accent-green);
         }
 
         footer {
+            background-color: #0A1811;
+            color: #626861;
             text-align: center;
-            padding: 2rem;
+            padding: 2rem 0;
             font-size: 0.9rem;
-            color: var(--text-light);
-            background-color: #f1f3f2;
         }
 
-        /* --- Responsive Design --- */
-        @media (max-width: 768px) {
-            header h1 { font-size: 2.5rem; }
-            header .subtitle { font-size: 1.1rem; }
-            .nav-links { display: none; } /* Hide nav links on mobile for simplicity */
-            .timeline::after { left: 15px; }
-            .timeline-item { padding-left: 40px; }
-            .timeline-item::after { left: 7px; }
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 992px) {
+            .hero-content { grid-template-columns: 1fr; text-align: center; }
+            .hero-text h1 { font-size: 3.5rem; }
+            .hero-description { margin: 0 auto 2.5rem auto; }
+            .btn-group { justify-content: center; }
+            .snapshot-grid { grid-template-columns: repeat(2, 1fr); }
+            .project-item { grid-template-columns: 1fr; gap: 2rem; }
+            .project-item.reverse { direction: ltr; }
+            .current-work-grid { grid-template-columns: 1fr; }
+            .about-grid { grid-template-columns: 1fr; text-align: center; }
+            .about-image { max-width: 300px; margin: 0 auto; }
+        }
+
+        @media (max-width: 600px) {
+            .hero-text h1 { font-size: 2.5rem; }
+            .nav-links { display: none; }
+            .snapshot-grid { grid-template-columns: 1fr; }
+            .workflow-grid { flex-direction: column; }
+            .workflow-arrow { transform: rotate(90deg); margin: 1rem 0; }
+            .contact-links { flex-direction: column; gap: 1.5rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
+    <!-- NAVIGATION -->
     <nav>
-        <div class="nav-content">
-            <div class="logo">Susma Regmi</div>
+        <div class="container nav-container">
+            <div class="logo">SUSMA REGMI</div>
             <div class="nav-links">
-                <a href="#about">About</a>
                 <a href="#research">Research</a>
-                <a href="#experience">Experience</a>
-                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
                 <a href="#publications">Publications</a>
-                <a href="https://www.linkedin.com/in/susmaregmi5859/" target="_blank" class="btn-linkedin">LinkedIn</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header>
-        <h1>Susma Regmi</h1>
-        <div class="subtitle">
-            Graduate Researcher | GIS | UAV Remote Sensing | Precision Agriculture
-        </div>
-        <div class="hero-links">
-            <a href="#research" class="btn btn-primary">View My Research</a>
-            <a href="mailto:regmisusma58@gmail.com" class="btn btn-outline">Contact Me</a>
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>GEOSPATIAL<br><span>RESEARCHER.</span></h1>
+                <div class="hero-subtitle">GIS · Remote Sensing · UAV · Precision Agriculture</div>
+                <p class="hero-description">
+                    I use geospatial data, remote sensing, UAV imagery, and computational methods to study agricultural landscapes and develop data-driven solutions.
+                </p>
+                <div class="btn-group">
+                    <a href="#projects" class="btn btn-primary">Explore My Work</a>
+                    <a href="mailto:regmisusma58@gmail.com" class="btn btn-outline">Contact Me</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <!-- REPLACE THIS WITH YOUR OWN UAV IMAGE -->
+                <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=1000&auto=format&fit=crop" alt="UAV agricultural imagery placeholder">
+                <div class="overlay-data">
+                    UAV DATA · HIGH-RESOLUTION IMAGERY<br>
+                    35.XXXX° N, 86.XXXX° W
+                </div>
+            </div>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main>
-        
-        <!-- About Section -->
-        <section id="about">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-text">
-                <p>
-                    I am a graduate researcher with a background in <strong>Agricultural Science</strong> and a growing specialization in <strong>Geographic Information Systems (GIS), UAV remote sensing, spatial analysis, and precision agriculture</strong>.
-                </p>
-                <p>
-                    I completed my <strong>B.Sc. in Agriculture from Agriculture and Forestry University, Nepal</strong>, where my academic and research work developed my interest in using geospatial technologies to understand agricultural landscapes and support data-driven agricultural decision-making.
-                </p>
-                <p>
-                    I am currently pursuing a Master's degree in <strong>Environmental Science with a concentration in GIS at Tennessee State University</strong>. My current research focuses on the application of <strong>UAV imagery and spatial data for precision management of woody crops</strong>. My broader goal is to develop practical geospatial and remote-sensing approaches that connect <strong>agricultural data with real-world management decisions</strong>.
-                </p>
-            </div>
-        </section>
+    <!-- CREDIBILITY STRIP -->
+    <div class="credibility-strip">
+        <div class="container">
+            <span>GIS</span>
+            <span>REMOTE SENSING</span>
+            <span>UAV</span>
+            <span>PYTHON</span>
+            <span>GOOGLE EARTH ENGINE</span>
+            <span>PRECISION AGRICULTURE</span>
+        </div>
+    </div>
 
-        <!-- Research Section -->
-        <section id="research">
-            <h2 class="section-title">Research Focus & Interests</h2>
-            <p style="margin-bottom: 2rem;">
-                My current research centers on using <strong>UAV imagery and geospatial techniques to detect and map individual trees in agricultural landscapes</strong>, particularly fruit orchards. I am interested in how remote sensing, GIS, and computational methods can be integrated into practical agricultural workflows.
-            </p>
-            
-            <div class="research-grid">
-                <div class="research-card">
-                    <h3>🌾 Precision Agriculture</h3>
-                    <p>Site-specific agricultural management, spatial variability, crop monitoring, and data-driven decision-making.</p>
+    <!-- RESEARCH SNAPSHOT -->
+    <section id="research">
+        <div class="container">
+            <div class="section-header">
+                <h2>Research at a Glance</h2>
+                <p>My work combines agricultural knowledge with geospatial technologies to understand, monitor, and improve agricultural systems.</p>
+            </div>
+            <div class="snapshot-grid">
+                <div class="snapshot-item">
+                    <h3>01 · Geospatial Analysis</h3>
+                    <p>Using GIS and spatial methods to understand patterns, relationships, and agricultural systems.</p>
                 </div>
-                <div class="research-card">
-                    <h3>🛰️ UAV & Drone Remote Sensing</h3>
-                    <p>High-resolution aerial imagery, UAV-based mapping, tree detection, vegetation analysis, and agricultural monitoring.</p>
+                <div class="snapshot-item">
+                    <h3>02 · Remote Sensing</h3>
+                    <p>Working with UAV and satellite imagery to extract meaningful information from landscapes.</p>
                 </div>
-                <div class="research-card">
-                    <h3>🗺️ GIS & Spatial Analysis</h3>
-                    <p>Spatial modeling, suitability analysis, geospatial databases, mapping, and interpretation of agricultural landscapes.</p>
+                <div class="snapshot-item">
+                    <h3>03 · Precision Agriculture</h3>
+                    <p>Applying spatial data and imagery to support site-specific agricultural decision making.</p>
                 </div>
-                <div class="research-card">
-                    <h3>🌍 Remote Sensing</h3>
-                    <p>Multispectral imagery, vegetation indices, land-cover mapping, temporal analysis, and integration of remotely sensed data.</p>
+                <div class="snapshot-item">
+                    <h3>04 · Geospatial Data Science</h3>
+                    <p>Using Python, R, and computational workflows to process and analyze spatial datasets.</p>
                 </div>
-                <div class="research-card">
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED PROJECTS -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2>Selected Research & Projects</h2>
+                <p>Demonstrating the application of geospatial technologies to real-world agricultural problems.</p>
+            </div>
+
+            <!-- Project 01 -->
+            <div class="project-item">
+                <div class="project-text">
+                    <div class="project-number">01</div>
+                    <h3>Individual Tree Detection Using UAV Imagery</h3>
+                    <div class="project-tags">
+                        <span>UAV</span>
+                        <span>GIS</span>
+                        <span>Python</span>
+                        <span>Computer Vision</span>
+                    </div>
+                    <p>Developing geospatial workflows to identify and map individual trees from high-resolution UAV imagery for precision orchard management. This project explores how spatial data can characterize tree distribution and orchard structure.</p>
+                    <a href="#" class="project-link">View Case Study →</a>
+                </div>
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?q=80&w=1000&auto=format&fit=crop" alt="UAV Tree Detection Placeholder">
+                </div>
+            </div>
+
+            <!-- Project 02 -->
+            <div class="project-item reverse">
+                <div class="project-text">
+                    <div class="project-number">02</div>
+                    <h3>Agricultural Remote Sensing</h3>
+                    <div class="project-tags">
+                        <span>Sentinel-2</span>
+                        <span>Google Earth Engine</span>
+                        <span>NDVI</span>
+                    </div>
+                    <p>Exploring satellite imagery and vegetation indices to monitor agricultural landscapes over time. This work integrates environmental and soil-related factors to identify spatial and temporal patterns in crop health.</p>
+                    <a href="#" class="project-link">View Case Study →</a>
+                </div>
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1000&auto=format&fit=crop" alt="Satellite Remote Sensing Placeholder">
+                </div>
+            </div>
+
+            <!-- Project 03 -->
+            <div class="project-item">
+                <div class="project-text">
+                    <div class="project-number">03</div>
+                    <h3>Agricultural Suitability Mapping</h3>
+                    <div class="project-tags">
+                        <span>GIS</span>
+                        <span>MCDM</span>
+                        <span>AHP</span>
+                        <span>Spatial Analysis</span>
+                    </div>
+                    <p>Investigating the spatial suitability of millet cultivation across Nepal using the Analytic Hierarchy Process (AHP), Multi-Criteria Decision Making (MCDM), and geospatial analysis to support agricultural planning.</p>
+                    <a href="#" class="project-link">View Case Study →</a>
+                </div>
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=1000&auto=format&fit=crop" alt="Suitability Mapping Placeholder">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WORKFLOW SECTION (DARK) -->
+    <section class="workflow-section">
+        <div class="container">
+            <h2>FROM DATA TO DECISION</h2>
+            <div class="workflow-grid">
+                <div class="workflow-step">
+                    <h4>01 · Data</h4>
+                    <p>Satellite · UAV · Field</p>
+                </div>
+                <div class="workflow-arrow">→</div>
+                <div class="workflow-step">
+                    <h4>02 · Process</h4>
+                    <p>Python · GIS · GEE</p>
+                </div>
+                <div class="workflow-arrow">→</div>
+                <div class="workflow-step">
+                    <h4>03 · Analyze</h4>
+                    <p>Spatial Analysis · ML</p>
+                </div>
+                <div class="workflow-arrow">→</div>
+                <div class="workflow-step">
+                    <h4>04 · Validate</h4>
+                    <p>Accuracy · Field Data</p>
+                </div>
+                <div class="workflow-arrow">→</div>
+                <div class="workflow-step">
+                    <h4>05 · Communicate</h4>
+                    <p>Maps · Insights</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CURRENTLY WORKING ON -->
+    <section id="current">
+        <div class="container">
+            <div class="section-header">
+                <h2>Currently Working On</h2>
+            </div>
+            <div class="current-work-grid">
+                <div class="current-work-card">
+                    <h3>🌳 Individual Tree Detection</h3>
+                    <p>Developing UAV-based approaches for detecting and mapping individual trees in agricultural systems.</p>
+                </div>
+                <div class="current-work-card">
+                    <h3>🛰️ Agricultural Remote Sensing</h3>
+                    <p>Exploring high-resolution imagery and spatial datasets for agricultural monitoring and spatial analysis.</p>
+                </div>
+                <div class="current-work-card">
                     <h3>💻 Geospatial Data Science</h3>
-                    <p>Python-based analysis, machine learning, spatial datasets, image processing, and reproducible geospatial workflows.</p>
-                </div>
-                <div class="research-card">
-                    <h3>🌳 Woody Crop Management</h3>
-                    <p>Tree detection, orchard mapping, canopy characterization, and UAV-based precision management.</p>
+                    <p>Developing reproducible computational workflows for spatial and image analysis using Python.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Experience Section -->
-        <section id="experience">
-            <h2 class="section-title">Experience</h2>
+    <!-- EXPERIENCE -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-header">
+                <h2>Experience & Education</h2>
+            </div>
             <div class="timeline">
-                
                 <div class="timeline-item">
                     <h4>Graduate Researcher</h4>
-                    <div class="meta">Tennessee State University | 2024 - Present</div>
+                    <div class="meta">Tennessee State University | 2025 - Present</div>
                     <p>Conducting research on the application of UAV imagery and spatial data for precision management of woody crops. Focused on individual tree detection, mapping, and spatial analysis in fruit orchards.</p>
                 </div>
-
                 <div class="timeline-item">
                     <h4>Research Intern</h4>
                     <div class="meta">Prime Minister Agriculture Modernization Project, Nepal | 2023 - 2024</div>
-                    <ul>
-                        <li>Researched effects of nursery management on hatchlings of Bighead carps in Dhanusha.</li>
-                        <li>Assessed different varietal performance of Nepalese Hybrids in Dhanusha, Nepal.</li>
-                        <li>Assisted in Beneficiary selection survey of FANSIP-II project through farmer assessment and verification.</li>
-                        <li>Participated in field surveys and data collection on fruit production for the Ministry of Agriculture using GPS in Madhesh Province.</li>
-                    </ul>
+                    <p>Researched effects of nursery management on hatchlings of Bighead carps. Assessed varietal performance of Nepalese Hybrids. Participated in field surveys and data collection using GPS in Madhesh Province.</p>
                 </div>
-
                 <div class="timeline-item">
                     <h4>SEO Analyst & WordPress Designer</h4>
                     <div class="meta">Codavatar Tech | 2022 - 2023</div>
-                    <ul>
-                        <li>Monitored SEO trends and identified opportunities for optimization and growth.</li>
-                        <li>Developed and optimized high-impact, SEO-driven content across multiple websites using data-driven keyword strategies.</li>
-                        <li>Optimized WordPress-based websites for high-speed performance and UX/UI enhancements.</li>
-                        <li>Implemented schema markup, structured data, and rich snippets for improved search visibility.</li>
-                        <li>Utilized Google Search Console, Google Analytics, Semrush, and Ahrefs for performance tracking.</li>
-                    </ul>
+                    <p>Monitored SEO trends and optimized high-impact content. Implemented schema markup and utilized Google Analytics, Semrush, and Ahrefs for performance tracking.</p>
                 </div>
-
-                <div class="timeline-item">
-                    <h4>Campaign Co-ordinator</h4>
-                    <div class="meta">International Association of Agricultural Students | 2021 - 2022</div>
-                    <ul>
-                        <li>Led global campaigns on sustainable agriculture (soil-test, awareness, mushroom cultivation) improving youth engagement in climate-smart farming.</li>
-                        <li>Conducted social media outreach and digital campaigns using SEO techniques to boost event visibility.</li>
-                    </ul>
-                </div>
-
-                <div class="timeline-item">
-                    <h4>SEO Content Writing Intern</h4>
-                    <div class="meta">Ombryo Lab Pvt. Ltd. | 2021 - 2022</div>
-                    <ul>
-                        <li>Developed SEO-optimized content, enhancing brand visibility and user engagement.</li>
-                        <li>Conducted in-depth keyword research and implemented on-page SEO strategies.</li>
-                        <li>Built and managed agricultural and sustainability-related content for my own blogging website.</li>
-                    </ul>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Education Section -->
-        <section id="education">
-            <h2 class="section-title">Education</h2>
-            <div class="timeline">
-                
                 <div class="timeline-item">
                     <h4>M.S. in Environmental Science (Concentration in GIS)</h4>
-                    <div class="meta">Tennessee State University | 2024 - Present</div>
+                    <div class="meta">Tennessee State University | 2025 - Present</div>
                     <p>Current graduate coursework includes: Advanced GIS, Computing in Agriculture, Programming for Data Science, and Research Methods.</p>
                 </div>
-
                 <div class="timeline-item">
                     <h4>B.Sc. in Agriculture</h4>
                     <div class="meta">Agriculture and Forestry University, Nepal | 2019 - 2024</div>
                     <p>Provided a broad foundation in agricultural science while developing a strong interest in GIS, remote sensing, spatial analysis, and agricultural research.</p>
                 </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- PUBLICATIONS -->
+    <section id="publications">
+        <div class="container">
+            <div class="section-header">
+                <h2>Selected Publications</h2>
             </div>
-        </section>
+            <div class="publication-list">
+                <div class="publication-item">
+                    <h3>Potentiality of Community-Based Tourism Homestay for Sustainable Livelihood in Nepal</h3>
+                    <div class="journal">Economic Growth and Environment · 2023</div>
+                    <p>Regmi, S., Neupane, A., Neupane, R., & Pokharel, A.</p>
+                </div>
+                <div class="publication-item">
+                    <h3>Role of Government Policies for Sustainable Forest Resource Management: A Review</h3>
+                    <div class="journal">Food and Agri Economics Review · 2023</div>
+                    <p>Regmi, S., Neupane, A., Neupane, R., & Pokharel, A.</p>
+                </div>
+                <div class="publication-item">
+                    <h3>Soil Management Approach for Agriculture in Nepal: A Review</h3>
+                    <div class="journal">Plant Physiology and Soil Chemistry · 2023</div>
+                    <p>Regmi, S., Neupane, A., & Neupane, S.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <!-- Skills Section -->
-        <section id="skills">
-            <h2 class="section-title">Technical Skills</h2>
-            
-            <h3 style="margin-top: 1.5rem; color: var(--text-dark);">GIS & Geospatial Technologies</h3>
-            <div class="skills-container">
-                <span class="skill-tag">ArcGIS Pro</span>
-                <span class="skill-tag">ArcGIS Online</span>
-                <span class="skill-tag">Spatial Analysis</span>
-                <span class="skill-tag">Geospatial Modeling</span>
-                <span class="skill-tag">Suitability Analysis</span>
-                <span class="skill-tag">Cartography</span>
-                <span class="skill-tag">Google Earth Engine</span>
+    <!-- ABOUT -->
+    <section id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image">
+                    <!-- REPLACE THIS WITH YOUR OWN PROFESSIONAL PHOTO -->
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop" alt="Susma Regmi Profile Placeholder">
+                </div>
+                <div class="about-text">
+                    <h3>About Me</h3>
+                    <p>My work sits at the intersection of agriculture, geospatial science, and remote sensing. With a background in agriculture and graduate training in environmental science and GIS, I am interested in understanding agricultural landscapes through spatial data, UAV imagery, satellite observations, and computational analysis.</p>
+                    <p>My current research focuses on applying geospatial technologies to agricultural problems, with particular interest in precision agriculture, UAV-based analysis, spatial modeling, and remote sensing.</p>
+                    <p>I enjoy working across the full research workflow—from collecting and processing spatial data to analyzing patterns, building reproducible workflows, and communicating results through maps and visualizations.</p>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <h3 style="margin-top: 1.5rem; color: var(--text-dark);">Remote Sensing</h3>
-            <div class="skills-container">
-                <span class="skill-tag">UAV/Drone Imagery</span>
-                <span class="skill-tag">Multispectral Remote Sensing</span>
-                <span class="skill-tag">Sentinel-1 & 2</span>
-                <span class="skill-tag">MODIS</span>
-                <span class="skill-tag">NDVI & Vegetation Indices</span>
-                <span class="skill-tag">Land Use/Land Cover Classification</span>
-            </div>
-
-            <h3 style="margin-top: 1.5rem; color: var(--text-dark);">Programming & Data Science</h3>
-            <div class="skills-container">
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">R / RStudio</span>
-                <span class="skill-tag">NumPy</span>
-                <span class="skill-tag">Data Analysis</span>
-                <span class="skill-tag">Machine Learning</span>
-                <span class="skill-tag">Image Processing</span>
-            </div>
-            
-            <h3 style="margin-top: 1.5rem; color: var(--text-dark);">Other Skills</h3>
-            <div class="skills-container">
-                <span class="skill-tag">WordPress Designing</span>
-                <span class="skill-tag">Search Engine Optimization (SEO)</span>
-                <span class="skill-tag">Content Writing</span>
-                <span class="skill-tag">Digital Marketing</span>
-                <span class="skill-tag">AHP & MCDM</span>
-            </div>
-        </section>
-
-        <!-- Publications Section -->
-        <section id="publications">
-            <h2 class="section-title">Selected Publications</h2>
-            
-            <div class="publication-item">
-                <p>Regmi, S., Neupane, A., Neupane, R., & Pokharel, A. (2023). <strong>POTENTIALITY OF COMMUNITY-BASED TOURISM HOMESTAY FOR SUSTAINABLE LIVELIHOOD IN NEPAL.</strong> <em>Economic Growth and Environment, 2(1), 01-04.</em></p>
-            </div>
-            
-            <div class="publication-item">
-                <p>Regmi, S., Neupane, A., Neupane, R., & Pokharel, A. (2023). <strong>ROLE OF GOVERNMENT POLICIES FOR SUSTAINABLE FOREST RESOURCE MANAGEMENT: A REVIEW.</strong> <em>Food and Agri Economics Review, 3(1), 10-13.</em></p>
-            </div>
-            
-            <div class="publication-item">
-                <p>Regmi, S., Neupane, A., & Neupane, S. (2023). <strong>SOIL MANAGEMENT APPROACH FOR AGRICULTURE IN NEPAL: A REVIEW.</strong> <em>Plant Physiology and Soil Chemistry, 3(1), 04-08.</em> <a href="https://doi.org/10.26480/PPSC.01.2023.04.08" target="_blank">https://doi.org/10.26480/PPSC.01.2023.04.08</a></p>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="contact-section">
-            <h2 class="section-title" style="border-bottom: none; margin-bottom: 1rem;">Let's Connect</h2>
-            <p>I am interested in research collaborations and opportunities involving Precision Agriculture, UAV Remote Sensing, GIS, and Geospatial Data Science.</p>
-            
+    <!-- CONTACT -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>LET'S MAP WHAT'S NEXT.</h2>
+            <p>Interested in research collaboration, geospatial analysis, remote sensing, or precision agriculture? I'm always interested in connecting with researchers, organizations, and collaborators working with spatial data.</p>
             <div class="contact-links">
-                <a href="mailto:regmisusma58@gmail.com">📧 regmisusma58@gmail.com</a>
-                <a href="https://www.linkedin.com/in/susmaregmi5859/" target="_blank">🔗 LinkedIn Profile</a>
+                <a href="mailto:regmisusma58@gmail.com">Email</a>
+                <a href="https://www.linkedin.com/in/susmaregmi5859/" target="_blank">LinkedIn</a>
+                <a href="#" target="_blank">GitHub</a>
+                <a href="#" target="_blank">Google Scholar</a>
             </div>
-        </section>
+        </div>
+    </section>
 
-    </main>
-
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer>
-        &copy; 2024 Susma Regmi. Built with GitHub Pages.
+        <div class="container">
+            <p>&copy; 2026 Susma Regmi. GIS · Remote Sensing · UAV · Precision Agriculture.</p>
+        </div>
     </footer>
 
 </body>
